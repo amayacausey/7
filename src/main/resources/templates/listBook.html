@@ -2,15 +2,26 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>admin</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title></title>
 </head>
 <body>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-<h1>Admin Page</h1>
-<a th:href="@{/register}"><button type="button" class="btn btn-secondary">Register</button></a>
-<a th:href="@{booksByCategory/{id}(id=${books.id})}"><button type="button" class="btn btn-secondary">list</button></a>
+<div th:each="books:${book}"
+     th:text="${books.category}">
+    <input type="hidden" th:field="*{id}"><br>
+    <th:block th:each="book:${books.category}">
+        Title: [[${book.title}]]
+        [[${books.isbn}]]
+        [[${books.author}]]
+        [[${book.description}]]
+    </th:block>
+</div>
+
+
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
         crossorigin="anonymous"></script>

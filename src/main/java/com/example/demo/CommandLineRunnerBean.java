@@ -13,6 +13,9 @@ public class CommandLineRunnerBean implements CommandLineRunner {
     @Autowired
     RoleRepository roleRepository;
 
+    @Autowired
+    BookRepository bookRepository;
+
 
     @Override
     public void run(String... args) {
@@ -30,5 +33,13 @@ public class CommandLineRunnerBean implements CommandLineRunner {
         userRepository.save(admin);
         roleRepository.save(adminRole1);
         roleRepository.save(adminRole2);
+
+        Book book1 = new Book("Learning Java","Nora","Programming",2,2020,"123-445");
+        Book book2 = new Book("Green Eggs And Ham","Dr.Seuss","Children",12,2008,"148-495");
+
+       bookRepository.save(book1) ;
+       bookRepository.save(book2);
+
+
     }
 }

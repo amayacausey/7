@@ -8,12 +8,14 @@
     <title></title>
 </head>
 <body>
-<!--<h2>Welcome Page</h2>-->
-
-<p th:if="${message}">[[${message}]]</p>
-<a th:href="@{/admin}">Admin Page</a><br>
-<form th:action="@{/logout}" method="post">
-    <input type="submit" value="Logout"/>
+<form action="#"th:action="@{/processBook}" th:object="${books}" method="post">
+    <input type="hidden" th:field="*{id}"><br>
+    Title: <input type="text" th:field="*{title}"><br>
+    ISBN:  <input type="text" th:field="*{isbn}"><br>
+    Author: <input type="text" th:field="*{author}"><br>
+    Category: <input type="text" th:field="*{category}"><br>
+    Quantity:<input type="number" th:field="*{quantity}">
+    <input type="submit" value="Submit"/>
 </form>
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"

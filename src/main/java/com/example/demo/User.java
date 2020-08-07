@@ -39,6 +39,9 @@ public class User {
 
    @Column(name="enabled")
     private boolean enabled;
+//
+//   @ManyToOne
+//   private Book book;
 
     public User() {
     }
@@ -118,4 +121,12 @@ public class User {
     public void clearPassword(){
         this.password="";
     }
+
+//    public Book getBook() {
+//        return book;
+//    }
+//
+//    public void setBook(Book book) {
+//        this.book = book;
+//    }
 }
